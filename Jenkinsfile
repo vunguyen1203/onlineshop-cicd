@@ -36,7 +36,7 @@ pipeline {
                         DOCKER_HUB=${DOCKER_HUB} \
                         NAME_BACKEND=${NAME_BACKEND} \
                         NAME_FRONTEND=${NAME_FRONTEND} \
-                        docker-compose build --parallel
+                        docker compose build --parallel
                         
                         echo "${DOCKER_HUB_USER_PSW}" | docker login -u "${DOCKER_HUB_USER_USR}" --password-stdin 
                         docker push ${DOCKER_HUB}/${NAME_BACKEND}:${DOCKER_TAG} 
