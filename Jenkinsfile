@@ -56,8 +56,8 @@ pipeline {
                         sh """
                             ssh -o StrictHostKeyChecking=no onlineshop@192.168.117.22 "
                                 docker rm -f ${NAME_BACKEND} ${NAME_FRONTEND} || true
-                                docker --restart always run --name=${NAME_BACKEND} -dp 8080:80 ${DOCKER_HUB}/${NAME_BACKEND}:${DOCKER_TAG}
-                                docker --restart always run --name=${NAME_FRONTEND} -dp 80:80 ${DOCKER_HUB}/${NAME_FRONTEND}:${DOCKER_TAG}
+                                docker run --restart always --name=${NAME_BACKEND} -dp 8080:80 ${DOCKER_HUB}/${NAME_BACKEND}:${DOCKER_TAG}
+                                docker run --restart always --name=${NAME_FRONTEND} -dp 80:80 ${DOCKER_HUB}/${NAME_FRONTEND}:${DOCKER_TAG}
                             "
                         """
                     }
