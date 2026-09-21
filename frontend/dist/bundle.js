@@ -860,7 +860,7 @@
       ) {
         "use strict";
         eval(
-          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "variables": function() { return /* binding */ variables; }\n/* harmony export */ });\nvar variables = {\n  BASE_URL: "http://192.168.117.22:8080/api/"\n};\n\n//# sourceURL=webpack://ecommerce/./src/utils/api/variables.js?',
+          '__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   "variables": function() { return /* binding */ variables; }\n/* harmony export */ });\nvar variables = {\n  BASE_URL: "http://192.168.117.23:8080/api/"\n};\n\n//# sourceURL=webpack://ecommerce/./src/utils/api/variables.js?',
         );
 
         /***/
