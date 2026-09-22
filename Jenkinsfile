@@ -20,8 +20,9 @@ pipeline {
                     def scannerHome = tool "SonarScanner"
                     withSonarQubeEnv('Sonarqube server connection') {
                         sh """
-                            ${scannerHome}/bin/sonar-scanner \
-                            -D${SONAR_PROJECT_KEY}
+                            dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:"${SONAR_PROJECT_KEY}"
+                            dotnet build
+                            dotnet ${scannerHome}/SonarScanner.MSBuild.dll end
                         """
                     }
                 }
