@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_PROJECT_KEY = "sonar.projectKey=onlineshop"
+        SONAR_PROJECT_KEY = "onlineshop"
 
         DOCKER_HUB = "vucp2912n720"
         DOCKER_HUB_USER = credentials('dockerhub-user')
