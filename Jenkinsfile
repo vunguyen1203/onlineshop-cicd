@@ -28,7 +28,7 @@ pipeline {
                         withSonarQubeEnv('Sonarqube server connection') {
                             sh """
                                 dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:"${SONAR_PROJECT_KEY}"
-                                dotnet build ./backend-shopapp.sln
+                                dotnet build ./backend/backend.sln
                                 dotnet ${scannerHome}/SonarScanner.MSBuild.dll end
                             """
                         }
