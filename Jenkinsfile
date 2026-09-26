@@ -14,16 +14,24 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
         stage('Sonarqube analysis') {
             steps {
                 script {
                     def scannerHome = tool "SonarScanner"
-                    withSonarQubeEnv('Sonarqube server connection') {
-                        sh """
-                            dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:"${SONAR_PROJECT_KEY}"
-                            dotnet build ./backend/backend.sln
-                            dotnet ${scannerHome}/SonarScanner.MSBuild.dll end
-                        """
+                    withDotNet(sdk: 'dotnet-8') {
+                        withSonarQubeEnv('Sonarqube server connection') {
+                            sh """
+                                dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:"${SONAR_PROJECT_KEY}"
+                                dotnet build ./backend-shopapp.sln
+                                dotnet ${scannerHome}/SonarScanner.MSBuild.dll end
+                            """
+                        }
                     }
                 }
             }
